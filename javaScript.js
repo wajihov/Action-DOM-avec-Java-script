@@ -5,6 +5,7 @@ function myFunction()
     verifUserName();
     verifMail();
     verifierAge()
+    //verifPW();
 }
 
 function calculeAge(date) {
@@ -162,7 +163,85 @@ function verifPassword(){
     //   else console.log("password non Valide");  
     }
 }
+
+function verifPW(){
+    var pw = document.getElementById("idPW").value;
+    compteur=0;
+    if(majuscule(pw)==true)
+        compteur++;
+    if(minuscule(pw)==true)
+        compteur++;
+    if(PWisNumber(pw))
+        compteur++;
+    if(pw.length>=8)
+        compteur++;
+    console.log(pw , " le compteur est : ", compteur);
+    if(compteur>3){
+        var msgMail2="le mot de passe fort";
+        console.log(msgMail2);
+        document.getElementById("RepPass2").innerHTML= msgMail2;
+        document.getElementById("idPW").style.backgroundColor = "red";
+    }
+        
+    else if(compteur==2 || compteur==3){
+        var msgMail2="le mot de passe moyenne";
+        console.log(msgMail2);
+        document.getElementById("RepPass2").innerHTML= msgMail2; 
+        document.getElementById("idPW").style.backgroundColor = "green";
+    }
+        
+    else if(compteur==1){
+        var msgMail2="le mot de passe faible";
+        console.log(msgMail2);
+        document.getElementById("RepPass2").innerHTML= msgMail2; 
+        document.getElementById("idPW").style.backgroundColor = "yellow";
+    }
+        
+
+
+}
   
+
+function PWisNumber(pw){
+    var test = false;
+    for(i=0; i< pw.length; i++){
+        if(!isNaN(pw.charAt(i))){           //if the string is a number, do the following
+            test= true;
+            break;
+        }        
+    }
+    if(test==true)
+        return true;
+    else
+        return false;
+}
+function minuscule(pw){
+    var test= false;
+    for( i=0 ; i< pw.length; i++){       
+        if(pw.charAt(i)===pw.charAt(i).toLowerCase()){                        
+            test=true;
+            break;
+        }
+    }
+    if(test==true)
+        return true;
+    else
+        return false;
+}
+
+function majuscule(pw){
+    var test= false;
+    for( i=0 ; i< pw.length; i++){       
+        if(pw.charAt(i)===pw.charAt(i).toUpperCase()){                        
+            test=true;
+            break;
+        }
+    }
+    if(test==true)
+        return true;
+    else
+        return false;
+}
 
  /* 
  dans l'input on ajoute oninput="test()" pour faire la connexion avec la fonction
