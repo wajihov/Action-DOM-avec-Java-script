@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" id="idUsername"> </td>
+            <td><span id="repName"></span></td>            
+        </tr>
+        <tr>
+            <td>E-Mail </td>
+            <td><input type="text"id="idMail"></td>
+            <td><span id="RepMail" style="color: red"></span></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="text" id="idPassword" onblur="verifPassword()" onfocus="focusFunction()"  ></td>
+            <td><span id="RepPass"></span></td>            
+        </tr>
+        <tr>
+            <td>Date de naissance</td>
+            <td><input type="date" id="idDateBirth"  ></td>
+            <td><span id="RepAge"></span></td>
+        </tr>
+        
+        <tr>
+            <td></td>
+            <td><input type="button" value="Submit" onclick="myFunction()"></td>
+        </tr>
+        
+    </table>
+
+    <script type="text/javascript" src="javaScript.js"></script>    
+</body>
+</html>
